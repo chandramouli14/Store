@@ -1,0 +1,18 @@
+<p>Add Your New Task!</p>
+
+<form [formGroup]="taskForm" (submit)="submitNewTask()">
+    <div class="col-3">
+        <input type="text" formControlName="name" class='form-control' />
+        <span class="text-danger" *ngIf="this.taskForm.get('name').dirty && this.taskForm.get('name').errors">Task Name should be greater than 3 letters.</span>
+    </div>
+    <div class="mt-2">
+
+        <button class="btn btn-primary" type="Submit"
+            [disabled]="this.taskForm.get('name').status!=='VALID'">Submit</button>
+        <button class="btn btn-secondary mx-2" type="button" (click)="resetForm()"
+            [disabled]="!this.taskForm.get('name').dirty">Reset</button>
+        <!-- <button class="btn btn-primary" (click)="submitNewTask()">Submit</button> -->
+    </div>
+</form>
+
+<!-- When we are using submit event to submit a form its better to use button type for each type of button in the form other wise it will call submit method for every button call -->

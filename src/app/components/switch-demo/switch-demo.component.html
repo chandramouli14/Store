@@ -1,0 +1,41 @@
+<p>To Know the Behaviour of ngSwitch</p>
+
+<form [formGroup]="form">
+    <input type="text" class="form-control" formControlName="choice" />
+    <button class="btn btn-primary" (click)="showChoice()">Show</button>
+</form>
+
+<p [ngClass]="'customClass'">
+    Ng Switch with NgModel
+</p>
+<input type='text' [(ngModel)]="choice" [ngStyle]="{color:'red'}" />
+<div [ngSwitch]="choice">
+    <p *ngSwitchDefault>Select your choice in the Range of 1-5</p>
+    <p *ngSwitchCase="1">You Have Selected 1</p>
+    <p *ngSwitchCase="2">You Have Selected 2</p>
+    <!-- Ng Switch with template -->
+    <ng-template [ngSwitchCase]="3">Three is Selected</ng-template>
+    <p *ngSwitchCase="5">You Have Selected 5</p>
+    <ng-container *ngSwitchCase="4">
+        <ng-template *ngTemplateOutlet="sharedTemplate4"></ng-template>
+    </ng-container>
+    <ng-template #sharedTemplate4>This is a Shared Template for 4 with templateOutlet</ng-template>
+    <!-- <p *ngSwitchCase="4">You Have Selected 6</p> -->
+</div>
+
+<div *ngIf="choice<5 else notRangeTemplate">
+    The Input is with in the Range
+</div>
+
+<ng-template #notRangeTemplate>
+    <p class="text-danger"> Value is Not in the Given Range </p>
+</ng-template>
+
+<div *ngIf="choice<5; then rangeTemplate else notRangeTemplate">
+    <p class="text-danger">This content is not shown</p>
+</div>
+
+<ng-template #rangeTemplate>
+    <p class="text-primary">Value is in the Given Range</p>
+</ng-template>
+<!-- We Can template outlet for share the content between like cases it will behave like same but in the dom it will add reflect class to tell how its are adding -->

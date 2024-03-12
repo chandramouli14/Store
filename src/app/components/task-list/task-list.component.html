@@ -1,0 +1,31 @@
+<!-- It will provide the idea on how to make api calls,reactive form to submit new task.  -->
+
+<p class="text-danger">List of Tasks with Subscribe </p>
+<ol>
+    <li *ngFor="let task of tasks; trackBy: trackByFun;" class="text-primary">{{task.name}}</li>
+</ol>
+<p class="text-warning">List of Tasks with Aysnc Pipe </p>
+<!-- Automatically unsubscribe the observables when component destroys -->
+<ol>
+    <li *ngFor="let task of taskList$ | async" class="text-success">{{task.name}}</li>
+</ol>
+<app-add-task (refreshTask)="refreshTaskList($event)"></app-add-task>
+
+<div>
+    <div class="profile-menu">
+        <svg class="random-decoration"></svg>
+        <a href="#favorites">favorites</a>
+        <hr />
+        <a href="#section-a">a</a>
+        <a href="#section-b">b</a>
+        <a href="#section-c">c</a>
+    </div>
+    <div moneyMovementScrollSpy [menuTarget]="'.profile-menu'" [spiedTags]="['DIV']"
+        (sectionChange)="onSectionChange($event)">
+        <div id="favorites">Favorites are here</div>
+        <hr />
+        <div id="section-a">A</div>
+        <div id="section-b">B</div>
+        <div id="section-c">C</div>
+    </div>
+</div>

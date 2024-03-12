@@ -1,0 +1,25 @@
+<p>Angular Predefined Pipes !</p>
+<p>{{ 'uppercase pipe example' | uppercase}}</p>
+<p>{{ 'LOWERCASE Pipe example' | lowercase}}</p>
+<p>{{ 'TITLECASE pipe example' | titlecase}}</p>
+<p>Date pipe example {{ currentDate}}</p>
+<p>Date pipe {{ currentDate | date}}</p>
+<p>Date pipe {{ currentDate | date:'y-MMMM-d h:mm dd EEE'}}</p>
+<p>SlicePipe Example slice:start:end</p>
+<p>{{ "SLICE THE STRING BASED ON THE VALUES GIVEN" | slice:5}}</p>
+<p>{{ "SLICE THE STRING BASED ON THE VALUES GIVEN" | slice:5:20}}</p>
+<p>{{ "SLICE THE STRING BASED ON THE VALUES GIVEN" | slice:-5}}</p>
+<p>Number Pipe number:minintdigits:minfractiondigits-maxfraction</p>
+<p>{{1234.121212|number}}</p>
+<p>{{1234.121212|number:'3.1-2'}}</p>
+<p>{{1234.121212|number:'3.1-4'}}</p>
+<p>{{1234.121212|number:'3.1-1'}}</p>
+<p>{{1234.121212|number:'3.0-0'}}</p>
+<p>Currency Pipe</p>
+<p>{{2345|currency}}</p>
+<p>{{2345|currency:'USD':true}}</p>
+<p>{{2345|currency:'INR':false}}</p>
+<p>Percent Pipe</p>
+<p>{{12.234|percent}}</p>
+<p>{{0.234|percent:'1.2-2'}}</p>
+<p>{{12.234|percent:'3.2-4'}}</p>
